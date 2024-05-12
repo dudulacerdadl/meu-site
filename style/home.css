@@ -1,17 +1,4 @@
-html {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    color: #ffF;
-    font-family: "Raleway", sans-serif;
-}
-
-body {
-    margin: 0;
-}
-
 .container {
-    background: linear-gradient(to bottom, #333, #000);
     height: 100vh;
     display: flex;
     flex-direction: row;

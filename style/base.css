@@ -1,0 +1,13 @@
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: #ffF;
+    background: linear-gradient(to bottom, #333, #000);
+    font-family: "Raleway", sans-serif;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+}
