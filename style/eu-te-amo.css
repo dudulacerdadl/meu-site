@@ -32,8 +32,21 @@ img {
     max-width: 100%;
 }
 
+.play-music {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 999;
+    width: 15%;
+    cursor: pointer;
+}
+
 /* Tratativa de Imagens para Desktop */
 @media only screen and (min-width: 769px) {
+    .play-music {
+        width: 5%;
+    }
+
     .relative {
         position: relative;
     }
