@@ -28,6 +28,10 @@ h1.paragraph {
     font-weight: bold;
 }
 
+.line-through {
+    text-decoration: line-through;
+}
+
 img {
     max-width: 100%;
 }
