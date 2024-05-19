@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var playButton = document.querySelector(".play-music");
 
     playButton.addEventListener("click", function () {
-        audio.play();
+        if (audio.paused) {
+            audio.play();
+            playButton.src = "/assets/imgs/pause.png";
+        } else {
+            audio.pause();
+            playButton.src = "/assets/imgs/play.png";
+        }
     });
 });
