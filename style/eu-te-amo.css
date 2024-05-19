@@ -14,6 +14,11 @@
 .paragraph {
     font-size: 40px;
     color: #bfddf3;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
 }
 
 h1.paragraph {
@@ -116,7 +121,7 @@ img {
     }
 
     #oli-ali-img {
-        top: -10px;
+        top: 150px;
     }
 }
 
