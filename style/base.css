@@ -11,3 +11,80 @@ html {
 body {
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+}
+
+#logo {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    left: 5%;
+    padding: 10px 0px 0px 0px;
+    z-index: 999;
+}
+
+#logo img {
+    width: 15%;
+}
+
+#logo p {
+    font-family: fantasy;
+    color: #fff;
+    margin: 0;
+}
+
+nav {
+    position: fixed;
+    right: 5%;
+    z-index: 999;
+}
+
+.nav-item {
+    background-color: #ffffff20;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 5px;
+}
+
+a .nav-item {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    background-color: #ffffff40;
+}
+
+footer {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+footer img {
+    padding: 10px;
+    width: 45px;
+    filter: grayscale(100%);
+}
+
+footer img:hover {
+    filter: grayscale(0);
+}
+
+@media only screen and (max-width: 769px) {
+    #logo-text {
+        display: none;
+    }
+
+    .nav-item {
+        font-size: 14px;
+    }
+}

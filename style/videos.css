@@ -1,0 +1,64 @@
+.nav-item {
+    background-color: #00000020;
+}
+
+.logo-video {
+    width: 15%;
+    margin-left: auto;
+    z-index: -1;
+}
+
+#youtube {
+    font-family: "League Gothic", sans-serif;
+}
+
+#twitch {
+    font-family: "Montserrat", sans-serif;
+}
+
+.box:hover {
+    z-index: 0;
+    .texto-video {
+        color: #fff;
+    }
+}
+
+.texto-video {
+    color: #ffffff30;
+    font-size: 75px;
+}
+
+@media only screen and (max-width: 769px) {
+    .logo-video {
+        width: 25%;
+    }
+
+    .texto-video {
+        font-size: 55px;
+    }
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.box:nth-child(1) {
+    background: linear-gradient(to right, #ff000090, #ffaaaa);
+}
+
+.box:nth-child(2) {
+    background: linear-gradient(to right, #13131390, #9b9b9b);
+}
+
+.box:nth-child(3) {
+    background: linear-gradient(to right, #80008090, #ffcaff);
+}
