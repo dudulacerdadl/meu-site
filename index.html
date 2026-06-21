@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style/base.css">
-    <link rel="stylesheet" href="/style/home.css">
-    <link rel="shortcut icon" href="/assets/imgs/icon/icon.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap">
-    <title>Dudu Lacerda</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style/base.css">
+  <link rel="stylesheet" href="/style/home.css">
+  <link rel="shortcut icon" href="/assets/imgs/icon/icon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Literata:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <title>Dudu Lacerda</title>
 </head>
-
 <body>
+
+  <div class="wrap">
+
     <a id="logo" href="/">
         <img src="/assets/imgs/icon/icon.png" alt="Logo Coração">
         <div id="logo-text">
@@ -29,19 +31,41 @@
             <a href="/assets/pdf/curriculo.pdf" target="_blank" rel="noopener noreferrer"><li class="nav-item">Sobre</li></a>
         </ul>
     </nav>
-    <div class="container">
-        <div class="box">
-            <h1>Olá Visitante! :)</h1>
-            <h2>Bem-Vindo ao meu site!</h2>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+
+          <h1 data-reveal>Hey! Que bom<br>ter você <em>por aqui</em></h1>
+
+          <p class="lede" data-reveal>
+            Sou Eduardo Lacerda, programador, escritor e jogador de Zelda nas horas vagas.
+            <strong class="eyebrow">Contos Contigo</strong> é meu primeiro livro que reúne diversas histórias
+            curtas para ler em qualquer pausa do dia e voltar sempre que quiser
+            companhia.
+          </p>
+
+          <div class="tags" data-reveal>
+            <span class="tag">ficção brasileira</span>
+            <span class="tag">contos</span>
+            <span class="tag">ebook &amp; impresso</span>
+          </div>
+
+          <div class="cta-row" data-reveal>
+            <!-- 👉 troque o href abaixo pelo link real da sua loja (Amazon, Hotmart, site próprio, etc.) -->
+            <a class="btn-primary" href="https://www.amazon.com.br/Contos-Contigo-Dudu-Lacerda-ebook/dp/B09X18WJYF/" target="_blank" rel="noopener noreferrer">Compre aqui</a>
+            <span class="cta-note">Disponível em ebook e versão impressa</span>
+          </div>
         </div>
-        <div class="box2"></div>
-        <div class="box">
-            <h2>Compre meu livro!</h2>
-            <a href="https://www.amazon.com.br/Contos-Contigo-Dudu-Lacerda-ebook/dp/B09X18WJYF/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/imgs/contos_contigo.jpg" alt="Capa do Contos Contigo">
-            </a>
+
+        <div class="book-stage" data-reveal>
+          <a href="https://www.amazon.com.br/Contos-Contigo-Dudu-Lacerda-ebook/dp/B09X18WJYF/" target="_blank" rel="noopener noreferrer">
+            <img class="book" src="/assets/imgs/contos_contigo.jpg" alt="Capa do livro Contos Contigo">
+          </a>
         </div>
-    </div>
+      </section>
+    </main>
+
     <footer>
         <a href="https://instagram.com/dudulacerdadl" target="_blank" rel="noopener noreferrer">
             <img src="/assets/imgs/social/instagram.png" alt="Logo Instagram">
@@ -62,6 +86,7 @@
             <img src="/assets/imgs/social/linkedin.png" alt="Logo LinkedIn">
         </a>
     </footer>
-</body>
 
+  </div>
+</body>
 </html>

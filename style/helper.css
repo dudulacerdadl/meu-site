@@ -18,7 +18,7 @@
 button {
     border: #000 solid;
     border-radius: 10px;
-    background-color: aquamarine;
+    background-color: #ffa500;
     text-transform: uppercase;
     font-weight: bolder;
     width: 100%;
@@ -27,5 +27,5 @@ button {
 }
 
 button:hover {
-    background-color: rgb(183, 255, 231);
+    background-color: #ffcb69;
 }
