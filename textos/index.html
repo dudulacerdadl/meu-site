@@ -33,17 +33,25 @@
     <div class="conteudo-principal">
         <h1>Meus Textos</h1>
         <section class="secao-textos">
-            <h2>Poesias</h2>
+            <div>
+                <h2>Poesias</h2>
+                <input type="search" class="campo-busca" id="busca-poesias" placeholder="Buscar poesia…" aria-label="Buscar poesias pelo título">
+            </div>
             <div id="lista-poesias">
                 <p class="carregando">Carregando…</p>
             </div>
+            <button type="button" class="botao-ver-todas" id="botao-poesias" hidden>Ver todas</button>
         </section>
 
         <section class="secao-textos">
-            <h2>Versos</h2>
+            <div>
+                <h2>Versos</h2>
+                <input type="search" class="campo-busca" id="busca-versos" placeholder="Buscar verso…" aria-label="Buscar versos pelo título">
+            </div>
             <div id="lista-versos">
                 <p class="carregando">Carregando…</p>
             </div>
+            <button type="button" class="botao-ver-todas" id="botao-versos" hidden>Ver todas</button>
         </section>
     </div>
     <footer>
