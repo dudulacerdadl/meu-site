@@ -79,3 +79,45 @@ function montarLinkTexto(pasta, nomeArquivo) {
   const slug = nomeArquivo.replace(/\.md$/i, '');
   return `poema.html?pasta=${encodeURIComponent(pasta)}&arquivo=${encodeURIComponent(slug)}`;
 }
+
+/**
+ * Converte a string de tags do front matter (separadas por vírgula) em uma
+ * lista de tags limpas, sem espaços extras e sem itens vazios.
+ * Ex.: "noite, melancolia,  natureza" -> ["noite", "melancolia", "natureza"]
+ */
+function parseTags(tagsBruto) {
+  if (!tagsBruto) return [];
+  return tagsBruto
+    .split(',')
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+}
+
+/**
+ * Cores personalizadas por tag (opcional). A chave deve ser exatamente igual
+ * ao texto da tag (incluindo acentos, mas sem o #), e o valor pode ser
+ * qualquer cor CSS válida: #hexadecimal, rgb(...), hsl(...) etc.
+ *
+ * Tags que não aparecerem aqui usam a cor padrão do site automaticamente —
+ * não é preciso listar todas, só as que você quiser destacar com uma cor
+ * própria.
+ *
+ * Dica: como o fundo do site é escuro, prefira cores de média/alta
+ * luminosidade (não muito escuras) para manter o texto legível.
+ */
+const CORES_DAS_TAGS = {
+  'let': '#4FA8B5',
+  'gabs': '#5FA776',
+  'amor de ônibus': '#df9423',
+};
+
+/**
+ * Gera o atributo de estilo inline que aplica a cor personalizada de uma
+ * tag (via a custom property --cor-tag, usada em style.css). Se a tag não
+ * tiver cor definida em CORES_DAS_TAGS, retorna uma string vazia e ela usa
+ * a cor padrão definida no CSS.
+ */
+function estiloDaTag(tag) {
+  const cor = CORES_DAS_TAGS[tag];
+  return cor ? ` style="--cor-tag: ${cor}"` : '';
+}

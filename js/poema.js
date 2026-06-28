@@ -9,6 +9,7 @@ async function carregarTexto() {
 
   const elSelo = document.getElementById('selo-texto');
   const elTitulo = document.getElementById('titulo-texto');
+  const elTags = document.getElementById('tags-texto');
   const elCorpo = document.getElementById('corpo-texto');
 
   if (!pasta || !arquivo) {
@@ -32,6 +33,9 @@ async function carregarTexto() {
     document.title = meta.titulo ? `${meta.titulo} — Poesias & Versos` : 'Texto — Poesias & Versos';
     elSelo.textContent = dataFormatada ? `${rotulo} · ${dataFormatada}` : rotulo;
     elTitulo.textContent = meta.titulo || arquivo;
+
+    const tags = parseTags(meta.tags);
+    elTags.innerHTML = tags.map((tag) => `<span class="tag"${estiloDaTag(tag)}>${tag}</span>`).join('');
 
     // breaks: true preserva quebras de linha simples como <br>,
     // essencial para que os versos não colapsem em um único parágrafo.

@@ -3,6 +3,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  width: fit-content;
+}
+
 .secao-textos {
   margin-top: 3rem;
 }
@@ -159,6 +163,44 @@ a {
   border-radius: 2px;
   margin: 0 0 1.2rem;
   min-height: 1.2em;
+}
+
+.lista-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.catalogo-tags {
+  padding: 0 0.25rem 0.9rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: .75rem;
+  letter-spacing: 0.05em;
+  color: var(--cor-tag, #B9605A);
+  background: none;
+  border: 2px solid color-mix(in srgb, var(--cor-tag, #B9605A) 45%, transparent);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+button.tag {
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button.tag:hover,
+button.tag:focus-visible {
+  background-color: var(--cor-tag, #B9605A);
+  color: #1B2B34;
+}
+
+.tags-pagina {
+  margin: 0 0 1.6rem;
 }
 
 .texto-individual h1 {
