@@ -1,6 +1,7 @@
 ---
 titulo: Cabelos Verdes
 data: 2022-01-01
+tags: gabs
 ---
 
 Meu coração não sabe se por em seu lugar, ele vive bisbilhotando onde não deve, em todo lugar que não é chamado, e que ele mesmo sabe que não haverá resposta…
