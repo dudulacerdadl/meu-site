@@ -46,6 +46,7 @@ async function carregarPasta(pastaId) {
       return {
         titulo: meta.titulo || nomeArquivo.replace(/\.md$/i, ''),
         data: meta.data || '',
+        tags: parseTags(meta.tags),
         link: montarLinkTexto(pastaId, nomeArquivo),
       };
     })
@@ -64,18 +65,43 @@ function renderizarCatalogo(itens) {
   }
 
   const linhas = itens
-    .map(
-      (item) => `
+    .map((item) => {
+      const tagsHtml = item.tags.length
+        ? `<div class="lista-tags catalogo-tags">${item.tags
+            .map((tag) => `<button type="button" class="tag" data-tag="${tag}"${estiloDaTag(tag)}>${tag}</button>`)
+            .join('')}</div>`
+        : '';
+
+      return `
     <li class="catalogo-item">
       <a class="catalogo-link" href="${item.link}">
         <span class="catalogo-titulo">${item.titulo}</span>
         ${item.data ? `<span class="catalogo-data">${formatarData(item.data)}</span>` : ''}
       </a>
-    </li>`
-    )
+      ${tagsHtml}
+    </li>`;
+    })
     .join('');
 
   return `<ul class="catalogo">${linhas}</ul>`;
+}
+
+/**
+ * Filtra os itens de acordo com o termo digitado.
+ * Texto comum busca apenas pelo título.
+ * Prefixado com "#" (ex.: "#noite") busca apenas pelas tags — assim os
+ * dois tipos de busca nunca se misturam, mesmo que uma tag tenha o mesmo
+ * nome de algum título.
+ */
+function filtrarItens(itens, termoBruto) {
+  if (termoBruto.startsWith('#')) {
+    const termoTag = termoBruto.slice(1).trim().toLowerCase();
+    if (!termoTag) return itens;
+    return itens.filter((item) => item.tags.some((tag) => tag.toLowerCase().includes(termoTag)));
+  }
+
+  const termo = termoBruto.toLowerCase();
+  return itens.filter((item) => item.titulo.toLowerCase().includes(termo));
 }
 
 /**
@@ -88,12 +114,10 @@ function renderizarPasta(pastaId) {
   const botao = document.getElementById(`botao-${pastaId}`);
   if (!container) return;
 
-  const termo = dados.busca.trim().toLowerCase();
-  const emBusca = termo.length > 0;
+  const termoBruto = dados.busca.trim();
+  const emBusca = termoBruto.length > 0;
 
-  const filtrados = emBusca
-    ? dados.itens.filter((item) => item.titulo.toLowerCase().includes(termo))
-    : dados.itens;
+  const filtrados = emBusca ? filtrarItens(dados.itens, termoBruto) : dados.itens;
 
   const excedeLimite = filtrados.length > LIMITE_INICIAL;
 
@@ -135,10 +159,34 @@ function configurarBuscaEBotao(pastaId) {
   }
 }
 
+/**
+ * Clicar em uma tag filtra a listagem daquela categoria por ela,
+ * reaproveitando o mesmo campo de busca (preenchido automaticamente).
+ */
+function configurarCliqueEmTags(pastaId) {
+  const container = document.getElementById(`lista-${pastaId}`);
+  if (!container) return;
+
+  container.addEventListener('click', (evento) => {
+    const botaoTag = evento.target.closest('button.tag');
+    if (!botaoTag) return;
+
+    const tag = botaoTag.dataset.tag;
+    const valorBusca = `#${tag}`;
+    estado[pastaId].busca = valorBusca;
+
+    const campoBusca = document.getElementById(`busca-${pastaId}`);
+    if (campoBusca) campoBusca.value = valorBusca;
+
+    renderizarPasta(pastaId);
+  });
+}
+
 async function iniciarListagem() {
   await Promise.all(
     PASTAS.map(async (pasta) => {
       configurarBuscaEBotao(pasta.id);
+      configurarCliqueEmTags(pasta.id);
       try {
         estado[pasta.id].itens = await carregarPasta(pasta.id);
         renderizarPasta(pasta.id);
