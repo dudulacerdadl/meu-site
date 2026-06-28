@@ -1,6 +1,7 @@
 ---
 titulo: Sonetos ao Vento
 data: 2022-03-24
+tags: let
 ---
 
 _O vento bagunça seu cabelo,_
